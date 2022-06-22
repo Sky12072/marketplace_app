@@ -38,6 +38,12 @@
     <%= form.select :category_id, @categories.map {|c| [c.name, c.id]} %>
   </div>
 
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, accept: "image/png,image/jpg,image/jpeg" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

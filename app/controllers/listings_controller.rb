@@ -23,6 +23,7 @@ class ListingsController < ApplicationController
   # POST /listings or /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
 
     respond_to do |format|
       if @listing.save
@@ -71,5 +72,5 @@ class ListingsController < ApplicationController
 
     def set_form_vars
       @categories = Category.all
-    end
+    end 
 end

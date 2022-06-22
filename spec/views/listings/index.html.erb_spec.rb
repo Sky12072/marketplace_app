@@ -7,7 +7,7 @@ RSpec.describe "listings/index", type: :view do
         title: "Title",
         description: nil,
         price: 2,
-        sold: false,
+        closed: false,
         user: nil,
         category: nil
       ),
@@ -15,7 +15,7 @@ RSpec.describe "listings/index", type: :view do
         title: "Title",
         description: nil,
         price: 2,
-        sold: false,
+        closed: false,
         user: nil,
         category: nil
       )

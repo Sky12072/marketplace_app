@@ -3,7 +3,7 @@ FactoryBot.define do
     title { "MyString" }
     description { nil }
     price { 1 }
-    sold { false }
+    closed { false }
     user { nil }
     category { nil }
   end

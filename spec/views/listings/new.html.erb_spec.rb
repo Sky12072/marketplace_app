@@ -6,7 +6,7 @@ RSpec.describe "listings/new", type: :view do
       title: "MyString",
       description: nil,
       price: 1,
-      sold: false,
+      closed: false,
       user: nil,
       category: nil
     ))
@@ -23,7 +23,7 @@ RSpec.describe "listings/new", type: :view do
 
       assert_select "input[name=?]", "listing[price]"
 
-      assert_select "input[name=?]", "listing[sold]"
+      assert_select "input[name=?]", "listing[closed]"
 
       assert_select "input[name=?]", "listing[user_id]"
 

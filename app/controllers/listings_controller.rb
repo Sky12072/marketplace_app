@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy ]
+  before_action :set_listing, only: %i[ show edit update destroy place_transaction]
   before_action :set_form_vars, only: %i[ new edit ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authorize_user, only: [:edit, :update, :destroy]
@@ -59,6 +59,14 @@ class ListingsController < ApplicationController
       format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def place_transaction
+    Transaction.create(
+      listing_id: @listing.id,
+      client_id: current_user.id,
+      coder_id: @listing.user_id
+    )
   end
 
   private

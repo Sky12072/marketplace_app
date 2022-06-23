@@ -9,6 +9,17 @@
   <% end %>
 </div>
 
+<% if @listing.closed %>
+  <h1>Sorry, this project has been Closed</h1>
+<% elsif current_user && current_user.id == @listing.user_id %>
+  <h1>You can't code your own listing</h1>
+<% elsif current_user %>
+  <%= button_to "Submit your interest!" %>
+<% else %>
+  <h1>Please log in to proceed</h1>
+<% end %>
+
+
 
 <p>
   <strong>Title:</strong>

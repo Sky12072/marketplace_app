@@ -14,7 +14,7 @@
 <% elsif current_user && current_user.id == @listing.user_id %>
   <h1>You can't code your own listing</h1>
 <% elsif current_user %>
-  <%= button_to "Submit your interest!" %>
+  <%= button_to "Submit your interest!", place_interest_path %>
 <% else %>
   <h1>Please log in to proceed</h1>
 <% end %>
@@ -78,12 +78,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @listing.user_id %>
+  <%= @listing.user.username %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @listing.category_id %>
+  <%= @listing.category.name %>
 </p>
 
 <% if current_user && current_user.id == @listing.user_id %>

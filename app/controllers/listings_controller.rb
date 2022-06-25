@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy place_transaction]
+  before_action :set_listing, only: %i[ show edit update destroy place_interest]
   before_action :set_form_vars, only: %i[ new edit ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authorize_user, only: [:edit, :update, :destroy]
@@ -61,11 +61,20 @@ class ListingsController < ApplicationController
     end
   end
 
+  # at the moment this method isn't being utilised yet
   def place_transaction
     Transaction.create(
       listing_id: @listing.id,
       client_id: current_user.id,
       coder_id: @listing.user_id
+    )
+  end
+
+  # Method to create predetermined user interest to a project
+  def place_interest 
+    Message.create(
+      message = "#{current_user.username} is interested in this project",
+      body: message
     )
   end
 

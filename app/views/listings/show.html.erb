@@ -68,12 +68,18 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @listing.price %>
+  $<%= @listing.price %>
 </p>
 
 <p>
-  <strong>closed:</strong>
-  <%= @listing.closed %>
+  <strong>Status:</strong>
+  <td><% @listing.closed %>
+    <% if @listing.closed == true %>
+      <%= "closed" %>
+    <% else %>
+      <%= "open" %>
+    <% end %>
+  </td>
 </p>
 
 <p>

@@ -20,7 +20,7 @@
       <tr>
         <td><%= listing.title %></td>
         <td><%= listing.description %></td>
-        <td><%= listing.price %></td>
+        <td>$<%= listing.price %></td>
         <td><% listing.closed %>
           <% if listing.closed == true %>
             <%= "closed" %>

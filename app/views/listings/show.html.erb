@@ -5,7 +5,7 @@
   <% if @listing.image.attached? %>
     <%= image_tag @listing.image, alt: @listing.title %>
   <% else %>
-    <%= image_tag "axion.jpg", alt: @listing.title %>
+    <%= image_tag "gallery.png", alt: @listing.title, size: 125 %>
   <% end %>
 </div>
 
@@ -20,6 +20,41 @@
 <% end %>
 
 
+<%# need to check again what is the replacement of @listing.user.username ? %>
+<div class="columns">
+  <div class="column is-8">
+    <h1 class="title is-1"><%= @listing.title %></h1>
+    <div class="content">
+      <p class="pb3 border-bottom">Post <%= time_ago_in_words(@listing.created_at) %> ago</p>
+    </div>    
+  </div>
+
+  <div class="column is-3 is-offset-1">
+    <% if listing_author(@listing) %>
+      <div class="bg-light pa3 mb4 border-radius-3">
+        <p class="f6 pb1">Author actions:</p>
+        <div class="button-group">
+          <% if current_user && current_user.id == @listing.user_id %>
+          <%= link_to 'Edit', edit_listing_path(@listing) %> |
+          <% end %>
+          <%= link_to 'Back', listings_path %>
+        </div>
+      </div>
+    <% end %>
+    <div class="pr5 mb4">
+      <p class="text-align-left f6">listing author:</p>
+      <div class="inline-block nudge-down-10"><%= gravatar_for @listing.user, size: 32 %></div>
+      <div class="inline-block"><%= @listing.user.username %></div>
+    </div>
+    <% if user_signed_in? && current_user.id != @listing.user_id %>
+      <%= link_to "Message #{@listing.user.username}", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), method: 'post', class:"button is-link" %>
+    <% elsif user_signed_in? && current_user.id == @listing.user_id  %>
+      <%= link_to "Conversations", conversations_path %>
+    <% else %>
+    <%= link_to "Sign up to message #{@listing.user.username}", new_user_registration_path %>
+    <% end %>
+  </div>
+</div>
 
 <p>
   <strong>Title:</strong>
@@ -55,3 +90,4 @@
   <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <% end %>
 <%= link_to 'Back', listings_path %>
+

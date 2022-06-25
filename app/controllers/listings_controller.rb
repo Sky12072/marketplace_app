@@ -72,9 +72,11 @@ class ListingsController < ApplicationController
 
   # Method to create predetermined user interest to a project
   def place_interest 
+    
     Message.create(
-      message = "#{current_user.username} is interested in this project",
-      body: message
+      # conversation_id: @current.conversation_id,
+      # current_user.username "is interested in this project",
+      
     )
   end
 

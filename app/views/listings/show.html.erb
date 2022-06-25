@@ -9,6 +9,8 @@
   <% end %>
 </div>
 
+
+
 <% if @listing.closed %>
   <h1>Sorry, this project has been Closed</h1>
 <% elsif current_user && current_user.id == @listing.user_id %>

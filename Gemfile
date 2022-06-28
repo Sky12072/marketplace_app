@@ -54,3 +54,7 @@ gem "devise", "~> 4.8"
 gem 'kramdown' 
 
 gem 'kramdown-parser-gfm'
+
+gem 'bootstrap', '~> 5.1.3'
+
+gem 'jquery-rails'

@@ -70,15 +70,7 @@ class ListingsController < ApplicationController
     )
   end
 
-  # Method to create predetermined user interest to a project
-  def place_interest 
-    
-    Message.create(
-      # conversation_id: @current.conversation_id,
-      # current_user.username "is interested in this project",
-      
-    )
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -20,6 +20,8 @@
   outline: 0;
 }
 
+
+// styling for devise new registration
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -91,14 +93,6 @@ body {
   height: 100%;
 }
 
-// body {
-//   display: flex;
-//   align-items: center;
-//   padding-top: 40px;
-//   padding-bottom: 40px;
-//   background-color: #f5f5f5;
-// }
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -150,4 +144,36 @@ body {
   font-size: 14px!important; 
   position: relative;
   bottom: 8px;
+}
+
+
+// css for listing page
+.listing-padding {
+  padding:100px;
+  
+}
+
+.small-padding {
+  padding: 25px;
+}
+
+
+// padding for new listing
+
+.newlisting {
+  padding: 50px 300px 50px 300px;
+}
+
+.new-listing-elements {
+  padding: 10px;
+}
+
+.paddingtop {
+  padding-top: 15px;
+}
+
+// padding for new message
+
+.newmessage {
+  padding: 0px 300px 50px 300px;
 }

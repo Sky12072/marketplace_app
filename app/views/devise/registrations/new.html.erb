@@ -8,14 +8,7 @@
     <meta name="generator" content="Hugo 0.98.0">
     <title>Sign up</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-
     
-
-    
-
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -69,50 +62,50 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    
   </head>
   <body>
 
-<main class="form-signin w-100 m-auto">
-  <form>
+    <main class="form-signin w-100 m-auto">
     
+      
     <h1 class="text-center">Sign up</h1>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field", class="form-floating">
-          <%= f.label :email, for: "floatingInput" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "name@example.com", id: "floatingInput", class: "form-control" %>
-        </div>
+          <div class="field", class="form-floating">
+            <%= f.label :email, for: "floatingInput" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "name@example.com", id: "floatingInput", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :username %><br />
-          <%= f.text_field :username, autofocus: true, class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.label :username %><br />
+            <%= f.text_field :username, autofocus: true, class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", id: "floatingPassword", placeholder: "Password", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", id: "floatingPassword", placeholder: "Password", class: "form-control" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "floatingPassword", placeholder: "Password", class: "form-control" %>
-        </div>
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "floatingPassword", placeholder: "Password", class: "form-control" %>
+          </div>
 
-        <div class="actions">
-          <%= f.submit "Sign up", class: "w-100 btn btn-lg btn-primary" %>
-        </div>
-        <br>
-      <% end %>
+          <div class="actions">
+            <%= f.submit "Sign up", class: "w-100 btn btn-lg btn-primary" %>
+          </div>
+          <br>
+        <% end %>
 
-      <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
 
-    </form>
+    
     </main>
 
 

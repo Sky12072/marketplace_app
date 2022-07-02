@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" />
-        
+    
+   
         
 </head>
 
@@ -18,36 +18,41 @@
             <header class="p-3 bg-dark text-white">                
                 <div class="container">     
                         
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-                    </a>
-                    <h3>Axion</h3>
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">         
-                                                   
-                    <li><a href="<%= root_path %>" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="<%= listings_path %>" class="nav-link px-2 text-secondary">Listings</a></li>
-                    <li><a href="<%= about_path %>" class="nav-link px-2 text-white">About</a></li>
-                    </ul>
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+                        </a>
+                        <div class="axion">
+                            <h3>Axion<span class="custom-trademark">&#153;</span></h3>
+                        </div>
+                        
+                        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">         
+                                                    
+                        <li><a href="<%= root_path %>" class="nav-link px-2 text-white">Home</a></li>
+                        <li><a href="<%= listings_path %>" class="nav-link px-2 text-white">Listings</a></li>
+                        <li><a href="<%= about_path %>" class="nav-link px-2 text-white">About</a></li>
+                        </ul> 
 
-                    
+                        
 
-                    <div class="button">
-                        <% if user_signed_in? %>
-                            <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-                        <% else %>
-                            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-light me-2" %>
-                            <%= link_to "Sign in", new_user_session_path, class: "btn btn-warning" %>
-                        <% end %>
+                        <div class="button">
+                            <% if user_signed_in? %>
+                                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-light me-2" %>
+                            <% else %>
+                                <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-light me-2" %>
+                                <%= link_to "Sign in", new_user_session_path, class: "btn btn-warning" %>
+                            <% end %>
+                        </div>
+
+                        
                     </div>
-                </div>
                 </div>
             </header>
         
         </main>
 
 
-        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        
 
   
 

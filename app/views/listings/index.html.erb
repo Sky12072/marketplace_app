@@ -1,52 +1,94 @@
-<p id="notice"><%= notice %></p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    
+    <title>Listings</title>
 
-<h1>Listings</h1>
+    
 
-<h1>
-  <%= link_to "Messages", conversations_path %>
-</h1>
+    
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Status</th>
-      <th>User</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.title %></td>
-        <td><%= listing.description %></td>
-        <td>$<%= listing.price %></td>
-        <td><% listing.closed %>
-          <% if listing.closed == true %>
-            <%= "closed" %>
-          <% else %>
-            <%= "open" %>
-          <% end %>
-        </td>
 
-        <td><%= listing.user.username %></td>
-        <td><%= listing.category.name %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <% if current_user && current_user.id == listing.user_id %>
-          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-          <td><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <style>
+      .listing-padding {
+        padding:100px;
+        
+      }
 
-<br>
+      .small-padding {
+        padding: 25px;
+      }
+      /* .padding {
+        padding-left: 15px;
+        padding-right: 15px
+      } */
+     
+      
+      
+    </style>
+  </head>
 
-<%= link_to 'New Listing', new_listing_path %>
+  <body>
 
+    <p id="notice"><%= notice %></p>
+
+    <h1 class="text-center">Listings</h1><br>
+
+    
+
+    
+
+    <%= render 'shared/secondnav' %>
+
+    <div class="list-group listing-padding">
+      <% @listings.each do |listing| %>
+
+        
+
+          
+            
+            <div class="list-group-item list-group-item-action flex-column align-items-start"><br>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= link_to listing.title, listing %></h5>               
+                <small class="text-muted"><%= time_ago_in_words(listing.created_at) %></small>
+              </div>
+              <p class="mb-1"><%= listing.description %></p>
+              <small class="small-padding text-muted">$<%= listing.price %></small>
+              <small class="small-padding text-muted"><% listing.closed %>
+                  <% if listing.closed == true %>
+                    <%= "closed" %>
+                  <% else %>
+                    <%= "open" %>
+                  <% end %>            
+              </small>
+              <small class="small-padding text-muted" >author: <%= listing.user.username %></small>
+              <small class="small-padding text-muted">type: <%= listing.category.name %></small>
+              
+              <small class="small-padding text-muted"><% if current_user && current_user.id == listing.user_id %>
+                <%= link_to 'Edit', edit_listing_path(listing) %>
+                <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              </small>
+              <br><br>
+            </div>
+
+          
+          
+        
+        
+      <% end %>
+
+      
+        
+      
+      
+    </div>
+  </body>
+</html>
 

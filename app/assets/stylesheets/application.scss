@@ -119,3 +119,35 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.padding {
+  padding: 15px;
+}
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  padding-left: 55px;
+  padding-right: 55px;
+ 
+  background-color: #a9a9a9;
+  
+}
+
+.axion {
+  
+  padding-left: 55px;
+  padding-right: 55px;
+ 
+  
+  
+}
+
+.custom-trademark { 
+  font-size: 14px!important; 
+  position: relative;
+  bottom: 8px;
+}

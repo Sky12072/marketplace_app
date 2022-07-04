@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy place_interest]
+  before_action :set_listing, only: %i[ show edit update destroy ]
   before_action :set_form_vars, only: %i[ new edit ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :authorize_user, only: [:edit, :update, :destroy]
@@ -7,10 +7,12 @@ class ListingsController < ApplicationController
   # GET /listings or /listings.json
   def index
     @listings = Listing.all
+    @listings = @listings.order(:created_at).reverse_order
   end
 
   # GET /listings/1 or /listings/1.json
   def show
+   
   end
 
   # GET /listings/new

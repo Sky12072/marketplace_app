@@ -9,14 +9,7 @@
 </div>
 
 <div class="columns newlisting">
-  <div class="column is-3 padding">
-    <h3 class="title is-3">All Users</h3>
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-       <%= link_to "Message #{user.username}", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post" %><br>
-      <% end %>
-    <% end %>
-  </div>
+  
 
   <div class="column is-7 padding">
     <h3 class="title is-3">Conversations</h3>
@@ -30,7 +23,7 @@
         
         <% unless current_user.id == recipient %>
           
-          <div class="column">
+          <div class="column padding">
             <div class="inline-block nudge-down-10"><%= user_avatar recipient, size: 32 %></div>
             <div class="inline-block"><%= link_to recipient.username, conversation_messages_path(conversation) %></div>
           </div>

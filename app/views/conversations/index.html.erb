@@ -24,7 +24,7 @@
         <% unless current_user.id == recipient %>
           
           <div class="column padding">
-            <div class="inline-block nudge-down-10"><%= user_avatar recipient, size: 32 %></div>
+            <div class="inline-block nudge-down-10"><%= gravatar_for recipient, size: 32 %></div>
             <div class="inline-block"><%= link_to recipient.username, conversation_messages_path(conversation) %></div>
           </div>
           

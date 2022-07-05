@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  post "listings/:id/message", to: "messages#create", as: "place_interest"
+  
 
   get '/about' => 'pages#about', as: "about"
 end

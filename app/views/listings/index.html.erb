@@ -44,9 +44,11 @@
               <small class="small-padding text-muted" >author: <%= listing.user.username %></small>
               <small class="small-padding text-muted">type: <%= listing.category.name %></small>
               
-              <small class="small-padding text-muted"><% if current_user && current_user.id == listing.user_id %>
-                <%= link_to 'Edit', edit_listing_path(listing) %>
-                <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <small class="small-padding text-muted">
+                <% if current_user && current_user.id == listing.user_id %>
+                  <%= link_to 'Edit', edit_listing_path(listing) %>
+                  <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  
                 <% end %>
               </small>
               <br><br>

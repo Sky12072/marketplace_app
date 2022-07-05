@@ -37,6 +37,6 @@ class MessagesController < ApplicationController
     def find_conversation
       @conversation = Conversation.find(params[:conversation_id])
     end
-end
+end 
 
   

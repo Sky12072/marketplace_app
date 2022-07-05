@@ -49,12 +49,18 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# authentication 
 gem "devise", "~> 4.8"
 
+# render markdown into views
 gem 'kramdown' 
 
 gem 'kramdown-parser-gfm'
 
+# styling css
 gem 'bootstrap', '~> 5.1.3'
 
 gem 'jquery-rails'
+
+# resize image on the go
+gem 'mini_magick'

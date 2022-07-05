@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :listings
-
-  has_many :sold_transactions, foreign_key: "coder_id", class_name: "Transaction"
-  has_many :bought_transactions, foreign_key: "client_id", class_name: "Transaction"
+  
+  has_one_attached :avatar
 end

@@ -2,20 +2,24 @@
     <h5 class="padding" >
         <%= link_to 'Create New Listing', new_listing_path, class: "btn btn-outline-light me-2" %>
     </h5>
+
+    <h5 class="padding" >
+        <%= link_to "Messages", conversations_path, class: "btn btn-outline-light me-2" %>
+    </h5>
 </div>
 
 <div class="columns newlisting">
-  <div class="column is-3">
+  <div class="column is-3 padding">
     <h3 class="title is-3">All Users</h3>
     <% @users.each do |user| %>
       <% if user.id != current_user.id %>
-       <%= link_to "Message #{user.username}", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post", class: "new-listing-elements" %>
+       <%= link_to "Message #{user.username}", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post" %><br>
       <% end %>
     <% end %>
   </div>
 
-  <div class="column is-7 small-padding">
-    <h3 class="title is-3 paddingtop">Conversations</h3>
+  <div class="column is-7 padding">
+    <h3 class="title is-3">Conversations</h3>
     <% @conversations.each do |conversation| %>
       <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
         <% if conversation.sender_id == current_user.id %>
@@ -23,13 +27,14 @@
         <% else %>
           <% recipient = User.find(conversation.sender_id) %>
         <% end %>
+        
         <% unless current_user.id == recipient %>
-          <div class="columns paddingtop">
-            <div class="column">
-              <div class="inline-block nudge-down-10 paddingtop"><%= gravatar_for recipient, size: 32 %></div>
-              <div class="inline-block"><%= link_to recipient.username, conversation_messages_path(conversation) %></div>
-            </div>
+          
+          <div class="column">
+            <div class="inline-block nudge-down-10"><%= user_avatar recipient, size: 32 %></div>
+            <div class="inline-block"><%= link_to recipient.username, conversation_messages_path(conversation) %></div>
           </div>
+          
         <% end %>
       <% end %>
     <% end %>

@@ -1,6 +1,64 @@
-<h1>Editing Listing</h1>
+<div class="newlisting">
 
-<%= render 'form', listing: @listing %>
+    <h1>Editing Listing</h1>
 
-<%= link_to 'Show', @listing %> |
-<%= link_to 'Back', listings_path %>
+
+    <%= form_with(model: @listing) do |form| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+        <% listing.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ 
+
+  <div class="field new-listing-elements">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field new-listing-elements">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div class="field new-listing-elements">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field new-listing-elements">
+    <%= form.label :closed %>
+    <%= form.check_box :closed %>
+  </div>
+
+  
+
+  <div class="field new-listing-elements">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, @categories.map {|c| [c.name, c.id]} %>
+  </div>
+
+
+  <div class="field new-listing-elements">
+    <%= form.label :image %>
+    <%= form.file_field :image, accept: "image/png,image/jpg,image/jpeg", class:"btn btn-primary my-2" %>
+  </div>
+
+  <div class="actions new-listing-elements">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+
+
+    <%= link_to 'Show', @listing %> |
+    <%= link_to 'Back', listings_path %>
+</div>

@@ -63,14 +63,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  # at the moment this method isn't being utilised yet
-  def place_transaction
-    Transaction.create(
-      listing_id: @listing.id,
-      client_id: current_user.id,
-      coder_id: @listing.user_id
-    )
-  end
+  
 
 
 
@@ -87,7 +80,7 @@ class ListingsController < ApplicationController
 
     def authorize_user
       if @listing.user_id != current_user.id
-        flash[:alert] = "You can't do that!"
+        flash[:alert] = "Sorry, that's not possible"
         redirect_to listings_path
       end
     end

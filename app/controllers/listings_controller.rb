@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
 
   # GET /listings or /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.all # To call all listing in the database
     @listings = @listings.order(:created_at).reverse_order
   end
 
@@ -70,7 +70,7 @@ class ListingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
-      @listing = Listing.find(params[:id])
+      @listing = Listing.find(params[:id]) # To call listing based on the parameter's id
     end
 
     # Only allow a list of trusted parameters through.

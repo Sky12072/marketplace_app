@@ -3,8 +3,8 @@ class ConversationsController < ApplicationController
     before_action :set_conversation, only: %i[ show edit update destroy ]
   
     def index
-      @users = User.all
-      @conversations = Conversation.all
+      @users = User.all # To call all users from the database
+      @conversations = Conversation.all # To call all conversations from the database
     end
   
     def create

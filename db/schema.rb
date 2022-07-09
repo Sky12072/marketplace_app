@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_06_24_004907) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  # this transactions table is for future development, not for the assessment or current stage
   create_table "transactions", force: :cascade do |t|
     t.bigint "listing_id", null: false
     t.bigint "coder_id", null: false

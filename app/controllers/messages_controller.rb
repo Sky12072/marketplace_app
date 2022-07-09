@@ -34,8 +34,9 @@ class MessagesController < ApplicationController
       params.require(:message).permit(:body, :user_id)
     end
 
+    # To find a conversation based on the parameter which is the conversation id
     def find_conversation
-      @conversation = Conversation.find(params[:conversation_id])
+      @conversation = Conversation.find(params[:conversation_id]) 
     end
 end 
 

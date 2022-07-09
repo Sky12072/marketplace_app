@@ -21,38 +21,34 @@
 
     <div class="list-group listing-padding">
       
-      <% @listings.each do |listing| %>
-         
-        
-
-          
+      <% @listings.each do |listing| %>          
             
-            <div class="list-group-item list-group-item-action flex-column align-items-start"><br>
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><%= link_to listing.title, listing %></h5>               
-                <small class="text-muted"><%= time_ago_in_words(listing.created_at) %></small>
-              </div>
-              <p class="mb-1"><%= listing.description %></p>
-              <small class="small-padding text-muted">$<%= listing.price %></small>
-              <small class="small-padding text-muted"><% listing.closed %>
-                  <% if listing.closed == true %>
-                    <%= "closed" %>
-                  <% else %>
-                    <%= "open" %>
-                  <% end %>            
-              </small>
-              <small class="small-padding text-muted" >author: <%= listing.user.username %></small>
-              <small class="small-padding text-muted">type: <%= listing.category.name %></small>
-              
-              <small class="small-padding text-muted">
-                <% if current_user && current_user.id == listing.user_id %>
-                  <%= link_to 'Edit', edit_listing_path(listing) %>
-                  <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  
-                <% end %>
-              </small>
-              <br><br>
-            </div>        
+        <div class="list-group-item list-group-item-action flex-column align-items-start"><br>
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= link_to listing.title, listing %></h5>               
+            <small class="text-muted"><%= time_ago_in_words(listing.created_at) %></small>
+          </div>
+          <p class="mb-1"><%= listing.description %></p>
+          <small class="small-padding text-muted">$<%= listing.price %></small>
+          <small class="small-padding text-muted"><% listing.closed %>
+              <% if listing.closed == true %>
+                <%= "closed" %>
+              <% else %>
+                <%= "open" %>
+              <% end %>            
+          </small>
+          <small class="small-padding text-muted" >author: <%= listing.user.username %></small>
+          <small class="small-padding text-muted">type: <%= listing.category.name %></small>
+             
+          <small class="small-padding text-muted">
+            <% if current_user && current_user.id == listing.user_id %>
+              <%= link_to 'Edit', edit_listing_path(listing) %>
+              <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+                 
+            <% end %>
+          </small>
+          <br><br>
+        </div>        
         
       <% end %>
     </div>

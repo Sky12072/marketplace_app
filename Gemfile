@@ -64,3 +64,4 @@ gem 'jquery-rails'
 
 # resize image on the go
 gem 'mini_magick'
+gem "aws-sdk-s3", "~> 1.117"

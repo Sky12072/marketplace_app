@@ -66,7 +66,7 @@
   <div class="padding2">
     <% if @listing.image.attached? %>
       <p>Attached files:</p>
-      <%= image_tag @listing.image, alt: @listing.title %>
+      <%= image_tag @listing.image, alt: @listing.title, width: 400 %>
     <% else %>
       <%= image_tag "gallery.png", alt: @listing.title, size: 125 %>
     <% end %>
